@@ -1,0 +1,12 @@
+.titleLinks{
+	display: inline-block;
+	background: #333;
+	color: white;
+	width: 80%;
+	margin-left:10%;
+	font-size: 100px;
+}
+a:link {color: white;}     
+a:visited {color: white;}   
+a:hover {color: white;}    
+a:active {color: white;}
