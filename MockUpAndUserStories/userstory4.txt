@@ -1,0 +1,2 @@
+4.
+As a student user, I should be able to find all info on tas and instructors in the same place
