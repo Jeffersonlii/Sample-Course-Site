@@ -17,14 +17,16 @@ header div{
 a:link{
 	text-decoration: none;
 	color: white;
+
 }
 a:visited{
 	text-decoration: none;
 	color: white;
 }
 a:hover{
-	text-decoration: underline;
-	color: white;
+	text-decoration: none;
+	color: #313335;
+	background-color: white;
 }
 
 .info-container{
