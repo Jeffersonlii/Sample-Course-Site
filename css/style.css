@@ -10,15 +10,17 @@ body{
     
 }
 header{
+	position: fixed;
 	display: block;
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 3em;
+	width: 99%;
 	color: white;
 	background-color: rgba(0, 0, 0, 0.4);
 }
 header nav{
-	display: inline-block;
+	display: block;
 	font-size: .6em;
 }
 
@@ -38,6 +40,7 @@ a:hover{
 }
 
 .info-container{
+	margin-top: 100px;
 	display: flex;
 	flex-wrap: wrap;
 	font-family: 'Montserrat', sans-serif;
@@ -85,6 +88,7 @@ footer{
 
 }
 #form{
+	margin-top: 110px;
 	text-align: center;
 }
 
@@ -93,6 +97,7 @@ footer{
 	header nav{font-size: 1.3em;
 		padding-top: 4%}
 	.info-container{
+		margin-top: 35%;
 		display: block;
 		width: 99%;
 	}
