@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 body{
-	background-color: #313335;
 	background-image: url('Background.jpg');
     background-size:cover;
     background-repeat:no-repeat;
     background-attachment: fixed;
     background-blend-mode: screen;
-    
 }
 header{
 	position: fixed;
@@ -17,12 +15,14 @@ header{
 	font-size: 3em;
 	width: 99%;
 	color: white;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.65);
 }
 header nav{
 	display: block;
 	font-size: .6em;
 }
+
+
 
 
 a:link{
@@ -45,7 +45,7 @@ a:hover{
 	flex-wrap: wrap;
 	font-family: 'Montserrat', sans-serif;
 	justify-content: center;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.65);
 }
 .info-container div{
 	width: 35%;
