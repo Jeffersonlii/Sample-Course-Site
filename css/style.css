@@ -2,7 +2,7 @@
 
 /*background image*/
 body{
-	background-image: url('Background.jpg');
+	background-image: url('Background.png');
     background-size:cover;
     background-repeat:no-repeat;
     background-attachment: fixed;
@@ -19,7 +19,7 @@ header{
 	font-size: 3em;
 	width: 99%;
 	color: white;
-	background-color: rgba(0, 0, 0, 0.65);
+	background-color: rgba(0, 0, 0, 0.55);
 }
 header nav{
 	display: block;
@@ -46,7 +46,7 @@ a:hover{
 	flex-wrap: wrap;
 	font-family: 'Montserrat', sans-serif;
 	justify-content: center;
-	background-color: rgba(0, 0, 0, 0.65);
+	background-color: rgba(0, 0, 0, 0.3);
 }
 .info-container div{
 	width: 35%;
@@ -97,20 +97,30 @@ footer{
 /*mobile styling*/
 @media only screen and (max-device-width: 480px){
 	header{font-size: 3em;}
-	header nav{font-size: 1.3em;
-		padding-top: 4%}
+	header nav{font-size: 1.4em;padding-top: 4%}
 	.info-container{
 		margin-top: 35%;
 		display: block;
 		width: 99%;
+		text-align: center;
+		font-size: 1.3em;
 	}
 	.info-container div{
 		width: 99%;
 		padding-top: .4%;
 
 	}
+	.info-container div img{
+	margin-top: 50px;
+	}
+
 	footer{
 		font-size: 2.4em;
 	}
+	#form{
+	margin-top: 500px;
+	text-align: center;
+}
+
 
 }
