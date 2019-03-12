@@ -41,7 +41,7 @@ a:hover{
 
 /*info boxes and custom link styling*/
 .info-container{
-	margin-top: 100px;
+	margin-top: 5%;
 	display: flex;
 	flex-wrap: wrap;
 	font-family: 'Montserrat', sans-serif;
