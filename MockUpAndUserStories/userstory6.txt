@@ -1,2 +1,0 @@
-6.
-As a student user, I should be able to find the important info, such as final info on the main page.

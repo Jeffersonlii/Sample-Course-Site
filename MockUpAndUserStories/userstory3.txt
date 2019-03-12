@@ -1,2 +1,0 @@
-3.
-As a student user, I should be able to find all info on tutorials and office hours in calendar

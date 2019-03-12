@@ -1,2 +1,0 @@
-1. 
-As a student user, I should be able to find my grades(markus) easily

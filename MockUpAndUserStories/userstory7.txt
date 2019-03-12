@@ -1,2 +1,0 @@
-7.
-As a student user, I should be able to find the lectures handouts, followed by tutorial handouts easily 
