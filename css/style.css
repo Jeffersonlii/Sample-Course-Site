@@ -40,8 +40,15 @@ a:hover{
 }
 
 /*info boxes and custom link styling*/
-.info-container{
+.masterWrap{
+	display: flex;
+	flex-direction: column;
 	margin-top: 5%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+.info-container{
+	margin-top: .3%;
 	display: flex;
 	flex-wrap: wrap;
 	font-family: 'Montserrat', sans-serif;
@@ -56,7 +63,14 @@ a:hover{
 	background-color: rgba(0, 0, 0, 0.6);
 	text-align: left;
 	color: white;
+	
 }
+.info-container p{
+	text-align: left;
+	color: white;
+
+}
+
 
 .info-container div a:link{
 	text-decoration: none;
@@ -71,7 +85,6 @@ a:hover{
 	color: black;
 }
 .info-container div img{
-
 	width: 80%;
 	height: 90%;
 }
@@ -93,13 +106,41 @@ footer{
 	padding-top: 2%;
 }
 
+/*click here for grades stuff*/
+#grades{
+	display: flex;
+	padding: 1%;
+	border: red solid 2px;
+	font-size: 2em;
+}
+/*feed back list for instructors*/
+
+#feedbacks{
+	display: flex;
+
+	flex-wrap: wrap;
+	justify-content: center;
+	
+}
+#feedbacks p {
+	display: flex;
+	padding: 2%;
+	margin: 20px;
+	width: 30%;
+	color:white;
+	background-color: rgba(0, 0, 0, 0.5);
+	font-family: 'Montserrat', sans-serif;
+}
 
 /*mobile styling*/
 @media only screen and (max-device-width: 480px){
 	header{font-size: 3em;}
 	header nav{font-size: 1.4em;padding-top: 4%}
+	.masterWrap{
+		display: block;
+		margin-top: 45%;
+	}
 	.info-container{
-		margin-top: 40%;
 		display: block;
 		width: 99%;
 		text-align: center;
