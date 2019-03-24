@@ -6,3 +6,7 @@ function loadFeedBack(){
         document.getElementById('feedbacks').prepend(div);
     }
 }
+
+function loadGrades(){
+
+}

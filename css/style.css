@@ -43,6 +43,7 @@ a:hover{
 .masterWrap{
 	display: flex;
 	flex-direction: column;
+
 	margin-top: 5%;
 	margin-left: 15%;
 	margin-right: 15%;
@@ -130,6 +131,23 @@ footer{
 	color:white;
 	background-color: rgba(0, 0, 0, 0.5);
 	font-family: 'Montserrat', sans-serif;
+}
+
+/*tables for student marks*/
+table,th,td{
+	border: grey 2px solid;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+}
+table input,th input,td input{
+	width: 25px;
+}
+#applyChanges{
+	width: 10%;
+	height: 7%;
+	color: black;
+
 }
 
 /*mobile styling*/

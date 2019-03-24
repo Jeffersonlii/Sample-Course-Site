@@ -17,10 +17,10 @@ student or instructor acount
 
 - instructor 
     - display all grades of all students // did html
-    - 'welcome teacher name click here for all grades'
+    - 'welcome teacher name click here for all grades'// did
     - section for feedback for them only!! // did html and some js 
     - remark req section 
-    - entering marks section 
+    - entering marks section // kinda did 
 
 
 
