@@ -6,16 +6,12 @@ app = Flask(__name__)
 app.secret_key=b'supersecret1'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/db.db'
 db = SQLAlchemy(app)
-data = None
 @app.route('/',methods=['GET','POST'])
 @app.route('/login',methods=['GET','POST'])
 def login():
     if 'email' in session:
-        results = db.engine.execute(text("select * from users"))
-        for result in results: 
-            if result['email'] == session['email']:
-                return query(result)
-        
+        data = getData(session['email'])
+        return query(data)
 
     elif request.method=='POST':
         results = db.engine.execute(text("select * from users"))
@@ -32,6 +28,7 @@ def login():
         return render_template('index.html')
 
 def query(result):
+    data = {}
     if result['type'] == "INSTRUCTOR":
         sql = """
             select name,reviews from users 
@@ -40,7 +37,7 @@ def query(result):
         session['email'] = result['email']
         session['typ'] = result['type']
         #returns instructor name and reviews
-        result = db.engine.execute(text(sql))
+        data = db.engine.execute(text(sql))
 
     else:# if user is a student
         sql = """
@@ -51,11 +48,15 @@ def query(result):
             """.format(result['email'])
         session['email'] = result['email']
         session['typ'] = result['type']
-        result = db.engine.execute(text(sql))
-        
+        data = db.engine.execute(text(sql))
+    
+    return goToHome(data)
 
-    return redirect(url_for('goToHome'))
-
+def getData(email):
+    results = db.engine.execute(text("select * from users"))
+    for result in results: 
+        if result['email'] == email:
+            return result
 
 ######similar pages####### V
 @app.route('/CWork')
@@ -73,11 +74,11 @@ def c():
 #####instructor pages##### V
 @app.route('/myFeedBack')
 def d():
-    return render_template('myFeedBack.html',data=session['data'])
+    return render_template('myFeedBack.html')
 
 @app.route('/gradesAll')
 def f():
-    return render_template('gradesAll.html',data=session['data'])
+    return render_template('gradesAll.html')
 
 #####student pages##### V
 @app.route('/Feedback')
@@ -86,28 +87,31 @@ def g():
 
 @app.route('/gradesMy')
 def i():
-    return render_template('gradesMy.html',data=session['data'])
+    return render_template('gradesMy.html')
 
 ##### home ####### V
 @app.route('/home')
-def goToHome():
-    if session['typ'] == 'INSTRUCTOR':
-        return render_template('homeInstructor.html',data=session['data'])
-    else:
-        return render_template('homeStudent.html',data=session['data'])
+def goToHome(data = None):
+    if data:
+        if session['typ'] == 'INSTRUCTOR':
+            return render_template('homeInstructor.html',data=data)
+        else:
+            return render_template('homeStudent.html',data=data)
+    else: 
+        data = getData(session['email'])
+        return query(data)
 
 ######log out############
 @app.route('/logout')
 def logout():
     session.pop('email')
-    session.pop('data')
     session.pop('typ')
     return redirect(url_for('login'))
 
 ######pdfs#############
 @app.route('/syl')
 def syl():
-    return render_template('assets/syl.pdf',data=session['data'])
+    return render_template('assets/syl.pdf')
 
 if __name__ =="__main__":
     app.run(debug=True)
