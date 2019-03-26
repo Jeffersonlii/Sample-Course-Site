@@ -2,27 +2,26 @@
 <html>
   <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="css/login_style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/login_style.css">
   </head>
   <body>
         <div class="container">
-                <div class="loginBlock">
+                <form class="loginBlock" method="POST">
                         <header>CSCB20 WINTER</header><br>
-                        <div><input type="text" placeholder="Student Number" name=studentNumber></div>
-                            
+                        <div><input type="text" placeholder="Email" name=email></div>
                         <div><input type="password" placeholder="Password" name=password></div>
-
                         
-                        <div><input type="submit" id="login" value=login style="background: white;"></div>
-                        <div><input type="submit" id="register" value="Register" style="background: white;"></div>
-                </div>
+                        <div><input type=submit id="login" value=Submit></div>
+                        <div><input type=button id="register" value="Register" style="height:40px; width:100px;"></div>
+                </form>
+      
            
-                <div class="popUpReg">
-                        <input type="submit" id="close" value="X" style="background: white;">
+                <post class="popUpReg" method ="POST">
+                  
+                        <input type="button" id="close" value="X">
                         <header style="font-size: 200%;color: white;">Registration</header><br><br>
                         <div class="info">
-                            <input type="text" placeholder="First Name">
-                            <input type="text" placeholder="Last Name"> 
+                            <input type="text" placeholder="Name">
                             <input type="text" placeholder="Student Number (student)"> 
                             <input type="text" placeholder="Email">
                             <input type="password" placeholder="Password">
@@ -37,8 +36,11 @@
                         <br>
                         <div><input type="submit" id="Register" value="Register" style="background: white;"></div>
                     </div>
-                </div>
+                </form>
+      
+           
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="../static/js/login.js"></script>
+
   </body>
 </html>

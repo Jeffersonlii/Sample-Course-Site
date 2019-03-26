@@ -12,7 +12,8 @@ body{
 	justify-content: center;
 }
 
-.loginBlock {
+
+.loginBlock{
 	display: flex;
 	font-family: 'Montserrat', sans-serif;
 	margin-top: 3%;
@@ -22,7 +23,6 @@ body{
 	margin-right: 25%; 
 	flex-direction: column;
 	align-items: center;
-
 	background-color: rgba(0, 0, 0, 0.55);
 }
 
@@ -44,9 +44,10 @@ input{
 input[type='submit']{
 	height:40px; 
 	width:100px;
+	background: white;
 }
 
-.popUpReg{ 
+.popUpReg { 
 	display: none;
 	font-family: 'Montserrat', sans-serif;
 	position:fixed;
@@ -74,6 +75,7 @@ input[type='submit']{
 	align-items: center;
 }
 .popUpReg .info input{margin: 1%;}
+
 .userType select{
 	width: 150px;
 	height: 30px;	
