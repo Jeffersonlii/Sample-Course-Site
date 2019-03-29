@@ -38,18 +38,16 @@ a:hover{
 	color: #313335;
 	background-color: white;
 }
-
 /*info boxes and custom link styling*/
 .masterWrap{
 	display: flex;
 	flex-direction: column;
 
-	margin-top: 5%;
+	margin-top: 3%;
 	margin-left: 15%;
 	margin-right: 15%;
 }
 .info-container{
-	margin-top: .3%;
 	display: flex;
 	flex-wrap: wrap;
 	font-family: 'Montserrat', sans-serif;
@@ -118,10 +116,8 @@ footer{
 
 #feedbacks{
 	display: flex;
-
 	flex-wrap: wrap;
 	justify-content: center;
-	
 }
 #feedbacks p {
 	display: flex;
@@ -149,6 +145,8 @@ table input,th input,td input{
 	color: black;
 
 }
+
+
 
 /*mobile styling*/
 @media only screen and (max-device-width: 480px){

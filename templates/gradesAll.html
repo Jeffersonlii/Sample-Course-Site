@@ -7,20 +7,22 @@
     
 </head>
 <body onload="loadGrades()">
-	<header>
+		<header>
 		<a href="home">CSCB20 WINTER 2019</a>
+
+		
 		<br>
 
 		<!--nav links-->
 		<nav>
 			<a href="https://piazza.com/class/jr7mjhytaij3jc" target="_blank">Piazza</a> |
 		    <a href="https://markus.utsc.utoronto.ca/cscb20w19/?locale=en" target="_blank">Markus</a> |
-		    <a href="https://q.utoronto.ca/courses/70345" target="_blank">Quercus</a> |
+		    <a href="https://q.utoronto.ca/courses/70345" target="_blank">Quercus</a> <br>
 		    <a href="CWork">Course Work</a> |
 		    <a href="Ohour">Office/Tutorials Times</a> |
 		    <a href="instructor">Instructor</a> |
-		    <a href="Feedback">Anon. Feedback</a>
-	    </nav>
+			<a href="logout">Logout From {{ name }}</a>
+		</nav>
 	</header>
 	<br>
 	<br>
@@ -33,12 +35,17 @@
             <th>Midterm</th><th>Final Exam</th>
         </tr>
         <tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
-        <div>
-            
-        </div>
 
+	{%for i in data%}
+		<tr>
+			<th>{{i['studentNumber']}}</th><th>{{i['q1']}}</th><th>{{i['q2']}}</th>
+			<th>{{i['q3']}}</th><th>{{i['q4']}}</th>
+            <th>{{i['a1']}}</th><th>{{i['a2']}}</th><th>{{i['a3']}}</th>
+            <th>{{i['midterm']}}</th><th>{{i['final']}}</th>
+        </tr>
+	{%endfor%}
+	</table>
 
-    </table>
         <input type="submit" id="applyChanges" value="Apply Changes" style="background: white;">
     </div>
     

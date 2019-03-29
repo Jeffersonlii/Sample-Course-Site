@@ -5,22 +5,29 @@ login page(like markus) //set up html/css,
 student or instructor acount
 
 - student: special link for
-    - marks on all assignents, labs, exams // did the link in home // finished, need linking with DB
-    - 'welcome studnet name click here for grades' // DID 
+    - marks on all assignents, labs, exams // finished
+    - 'welcome studnet name click here for grades' // finished
+
     - remark request / with 'why' box 
-    - anon feedback,  
+
+    - anon feedback, 
          - instructor selector 
         (a)  What do you like about the instructor teaching?
 	(b)  What do you recommend the instructor to do to improve their teaching?
 	(c)  What do you like about the labs?
 	(d)  What do you recommend the lab instructors to do to improve their lab teaching?
 
+
 - instructor 
-    - display all grades of all students // did html
-    - 'welcome teacher name click here for all grades'// did
-    - section for feedback for them only!! // did html and some js 
+    - display all grades of all students // finished
+    - 'welcome teacher name click here for all grades'// finished
+    - section for feedback for them only!! // finished 
     - remark req section 
-    - entering marks section // kinda did 
+    - entering marks section // need ability to write to db
+
+
+broken stuff:
+
 
 
 

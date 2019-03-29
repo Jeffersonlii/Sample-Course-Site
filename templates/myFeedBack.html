@@ -5,30 +5,33 @@
 	<title>Instructor Anon. Feedback</title>
 	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
-<body onload="loadFeedBack()">
+<body>
 	<header>
 		<a href="home">CSCB20 WINTER 2019</a>
+
+		
 		<br>
 
 		<!--nav links-->
 		<nav>
 			<a href="https://piazza.com/class/jr7mjhytaij3jc" target="_blank">Piazza</a> |
 		    <a href="https://markus.utsc.utoronto.ca/cscb20w19/?locale=en" target="_blank">Markus</a> |
-		    <a href="https://q.utoronto.ca/courses/70345" target="_blank">Quercus</a> |
+		    <a href="https://q.utoronto.ca/courses/70345" target="_blank">Quercus</a> <br>
 		    <a href="CWork">Course Work</a> |
 		    <a href="Ohour">Office/Tutorials Times</a> |
 		    <a href="instructor">Instructor</a> |
-		    <a href="Feedback">Anon. Feedback</a>
-	    </nav>
+			<a href="logout">Logout From {{ name }}</a>
+		</nav>
 	</header>
 	<br>
 	<br>
 	<div class ="masterWrap" >
-        <div class="info-container" id="grades" style="border: none;color:white;">Anon. Feedback for PLACEHOLDER</div>
+        <div class="info-container" id="grades" style="border: none;color:white;">Anon. Feedback for {{name}}</div>
 
         <div id="feedbacks">
-            <!--use js to write here-->
-
+			{%for i in data%}
+				<p>{{i}}</p>
+			{%endfor%}
         </div>
 
     

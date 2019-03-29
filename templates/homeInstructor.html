@@ -7,28 +7,32 @@
 </head>
 
 <body>
-    <header>
-        <a href="home">CSCB20 WINTER 2019</a>
-        <br>
+ 	<header>
+		<a href="home">CSCB20 WINTER 2019</a>
 
-        <!--nav links-->
-        <nav>
-            <a href="https://piazza.com/class/jr7mjhytaij3jc" target="_blank">Piazza</a> |
-            <a href="https://markus.utsc.utoronto.ca/cscb20w19/?locale=en" target="_blank">Markus</a> |
-            <a href="https://q.utoronto.ca/courses/70345" target="_blank">Quercus</a> |
-            <a href="CWork">Course Work</a> |
-            <a href="Ohour">Office/Tutorials Times</a> |
-            <a href="instructor">Instructor</a> |
-            <a href="myFeedBack">Anon. Feedback</a>
-        </nav>
-    </header>
+		
+		<br>
+
+		<!--nav links-->
+		<nav>
+			<a href="https://piazza.com/class/jr7mjhytaij3jc" target="_blank">Piazza</a> |
+		    <a href="https://markus.utsc.utoronto.ca/cscb20w19/?locale=en" target="_blank">Markus</a> |
+		    <a href="https://q.utoronto.ca/courses/70345" target="_blank">Quercus</a> <br>
+		    <a href="CWork">Course Work</a> |
+		    <a href="Ohour">Office/Tutorials Times</a> |
+		    <a href="instructor">Instructor</a> |
+			<a href="logout">Logout From {{ data }}</a>
+		</nav>
+	</header>
     <br>
 
     <!--click here for grades ! -->
 
     <div class="masterWrap">
-        <div class="info-container" id="grades">
-            <a href="gradesAll">Welcome {{ data.name }}, Click Here to View/Change Course Grades</a>
+        <div class="info-container" id="grades" style="color:white;">Welcome {{ data }}</div>
+        <div class="info-container" id="grades" style="flex-direction:column;align-items:center;">
+            <a href="gradesAll">View/Change Grades<br></a>
+            <a href="myFeedBack"> Personal Feedback</a>
         </div>
         <div class="info-container">
             <div>
@@ -43,30 +47,30 @@
             <div>
                 <h3>Lecture and Lab Handouts</h3>
                 <p>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 12 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 12 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 11 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 11 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 10 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 10 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 9 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 9 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 8 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 8 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 7 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 7 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 6 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 6 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 5 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 5 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 4 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 4 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 3 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 3 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 2 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 2 Lab Material</a><br><br>
-                    <a href="assets/samplePPT.pptx" target="_blank">Lecture 1 PPT</a>
-                    - <a href="assets/samplePdf.pdf" target="_blank"> Week 1 Lab Material</a>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 12 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 12 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 11 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 11 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 10 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 10 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 9 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 9 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 8 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 8 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 7 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 7 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 6 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 6 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 5 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 5 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 4 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 4 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 3 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 3 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 2 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 2 Lab Material</a><br><br>
+                    <a href="../static/assets/samplePPT.pptx" target="_blank">Lecture 1 PPT</a>
+                    - <a href="../static/assets/samplePdf.pdf" target="_blank"> Week 1 Lab Material</a>
                 </p>
             </div>
             <div>
@@ -74,7 +78,7 @@
                 <p>
                     - Lecture: Mondays 9 am to 11 am in HL001</a><br><br>
                     - Tutorials: see week calendar<br><br>
-                    - <a href="assets/syl.pdf" target="_blank">Syllabus</a>
+                    - <a href="../static/assets/syl.pdf" target="_blank">Syllabus</a>
 
                 </p>
             </div>
