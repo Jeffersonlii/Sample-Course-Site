@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Feedback</title>
-	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+	<title>Instructor Anon. Feedback</title>
+	<link rel="stylesheet" type="text/css" href="../../static/css/style.css">
 </head>
 <body>
-		<header>
+	<header>
 		<a href="home">CSCB20 WINTER 2019</a>
 
 		
@@ -19,19 +20,28 @@
 		    <a href="CWork">Course Work</a> |
 		    <a href="Ohour">Office/Tutorials Times</a> |
 		    <a href="instructor">Instructor</a> |
-			<a href="logout">Logout From {{ data }}</a>
+			<a href="logout">Logout From {{ name }}</a>
 		</nav>
 	</header>
 	<br>
 	<br>
-	<div id="form">
-		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdeRoemUo6U6ddY4LyQTdK13QQ222oP9gZT_HYOMKpotOa71w/viewform?embedded=true" width="640" height="792" frameborder="0" marginheight="0" marginwidth="0" >Loading...</iframe>
-	</div>
+	<div class ="masterWrap" >
+        <div class="info-container" id="grades" style="border: none;color:white;">Anon. Feedback for {{name}}</div>
+
+        <div id="feedbacks">
+			{%for i in data%}
+				<p>{{i}}</p>
+			{%endfor%}
+        </div>
+
+    
+    </div>
 	
 </body>
-<footer>
+    <footer>
 		<a href="https://www.utsc.utoronto.ca/cms/faculty"target="_blank">UTSC CMS Faculty</a>
 		<br>
 		Site Designed by Jefferson Li , Muhes Ariya
-	</footer>
+    </footer>
+    <script src="../static/js/instructorFB.js"></script>
 </html>

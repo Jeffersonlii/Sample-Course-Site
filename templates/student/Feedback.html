@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Remark Request</title>
+	<link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+</head>
+<body>
+		<header>
+		<a href="home">CSCB20 WINTER 2019</a>
+
+		
+		<br>
+
+		<!--nav links-->
+		<nav>
+			<a href="https://piazza.com/class/jr7mjhytaij3jc" target="_blank">Piazza</a> |
+		    <a href="https://markus.utsc.utoronto.ca/cscb20w19/?locale=en" target="_blank">Markus</a> |
+		    <a href="https://q.utoronto.ca/courses/70345" target="_blank">Quercus</a> <br>
+		    <a href="CWork">Course Work</a> |
+		    <a href="Ohour">Office/Tutorials Times</a> |
+		    <a href="instructor">Instructor</a> |
+			<a href="logout">Logout From {{ name }}</a>
+		</nav>
+	</header>
+	<br>
+	<br>
+	<div class="masterWrap">
+			<textarea name=0 cols="10" rows="5" placeholder="What do you like about the instructor teaching"></textarea>
+			<textarea name=1 cols="10" rows="5" placeholder="What do you recommend the instructor to do to improve their teaching?"></textarea>
+			<textarea name=2 cols="10" rows="5" placeholder="What do you like about the labs?"></textarea>
+			<textarea name=3 cols="10" rows="5" placeholder="What do you recommend the lab instructors to do to improve their lab teaching?"></textarea>
+			<form method="GET">			
+					<select name="" id="submits">
+							<option value="0">Select Instructor</option>
+							{%for name in data%}
+							<option value={{ name.index }}>{{name[0]}}</option>
+							{%endfor%}
+					</select>
+				   <input id="submits"type=submit value=Submit>
+			</form>
+	</div>
+</body>
+<footer>
+		<a href="https://www.utsc.utoronto.ca/cms/faculty"target="_blank">UTSC CMS Faculty</a>
+		<br>
+		Site Designed by Jefferson Li , Muhes Ariya
+	</footer>
+</html>

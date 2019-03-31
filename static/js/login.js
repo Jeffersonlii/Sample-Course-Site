@@ -19,6 +19,16 @@ $(document).ready(function(){
 	},function(){
 		$('#close').css("background","white");
 	})
+	$('#newReg').hover(function(){
+		$('#newReg').css("background","Silver");
+	},function(){
+		$('#newReg').css("background","white");
+	})
+	$('#login').hover(function(){
+		$('#login').css("background","Silver");
+	},function(){
+		$('#login').css("background","white");
+	})
 	
 
 })

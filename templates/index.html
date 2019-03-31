@@ -8,25 +8,23 @@
         <div class="container">
                 <form class="loginBlock" method="POST">
                         <header>CSCB20 WINTER</header><br>
-                        <div><input type="text" placeholder="Email" name=email></div>
+                        <div><input type="text" placeholder="Username" name=username></div>
                         <div><input type="password" placeholder="Password" name=password></div>
                         
-                        <div><input type=submit id="login" value=Submit></div>
-                        <div><input type=button id="register" value="Register" style="height:40px; width:100px;"></div>
+                        <div><input type=submit id="login" value=Submit name = 'login'></div>
+                        <div><input type=button id="register" value="Register"></div>
                 </form>
       
            
-                <post class="popUpReg" method ="POST">
+                <form class="popUpReg" method ="POST">
                   
                         <input type="button" id="close" value="X">
-                        <header style="font-size: 200%;color: white;">Registration</header><br><br>
+                        <header >Registration</header><br><br>
                         <div class="info">
-                            <input type="text" placeholder="Name">
-                            <input type="text" placeholder="Student Number (student)"> 
-                            <input type="text" placeholder="Email">
-                            <input type="password" placeholder="Password">
+                            <input type="text" placeholder="Username" name = usernamereg>
+                            <input type="password" placeholder="Password" name = passwordreg>
                             <div class="userType">
-                                <select name="" id="" style="width:200px;">
+                                <select name="pulldown" id="pulldown">
                                     <option value="0">Select User Type</option>
                                     <option value="1">Student</option>
                                     <option value="2">Instructor </option>
@@ -34,13 +32,20 @@
                             </div>
                         </div>
                         <br>
-                        <div><input type="submit" id="Register" value="Register" style="background: white;"></div>
-                    </div>
+                      <div><input type=submit id='newReg' value="Register" name = newReg></div>
                 </form>
-      
-           
+        </div>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="../static/js/login.js"></script>
-
+        {%if alert=="pass"%}
+        <script>
+            alert("Wrong Password/Username")
+        </script>
+        {%elif alert=="insuf"%}
+        <script>
+            alert("Insufficient Registration Info")
+        </script>
+        {%endif%}         
   </body>
 </html>

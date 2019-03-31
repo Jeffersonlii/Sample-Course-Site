@@ -10,7 +10,7 @@ student or instructor acount
 
     - remark request / with 'why' box 
 
-    - anon feedback, 
+    - anon feedback, //done looks, need insertion
          - instructor selector 
         (a)  What do you like about the instructor teaching?
 	(b)  What do you recommend the instructor to do to improve their teaching?
@@ -22,13 +22,18 @@ student or instructor acount
     - display all grades of all students // finished
     - 'welcome teacher name click here for all grades'// finished
     - section for feedback for them only!! // finished 
-    - remark req section 
+    - remark req section //did html
     - entering marks section // need ability to write to db
 
+to do :
 
-broken stuff:
+remove all inline css
+make a calendar
 
+instructors :
+insert, delete, modify grades
 
-
-
+student:
+submite remarks
+submit feedback
 

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 body{
-	background-image: url('Background.png');
+	background-image: url('../assets/Background.png');
     background-size:cover;
     background-repeat:no-repeat;
     background-attachment: fixed;
@@ -25,7 +25,10 @@ body{
 	align-items: center;
 	background-color: rgba(0, 0, 0, 0.55);
 }
-
+header{
+	font-size: 200%;
+	color: white;
+}
 .loginBlock header{
 	font-size: 240%;
 	color : white;
@@ -39,9 +42,12 @@ input{
     border: 2px solid aliceblue;
     background-color: aliceblue;
     font-size: 16px;
+}
+.pulldown{
+	width:200px;
 
 }
-input[type='submit']{
+input[type='submit'],input[type='button']{
 	height:40px; 
 	width:100px;
 	background: white;
@@ -94,4 +100,32 @@ a:hover{
 	text-decoration: none;
 	color: #313335;
 	background-color: white;
+}
+/*mobile styling*/
+@media only screen and (max-device-width: 480px){
+	.loginBlock{
+		width: 90%;
+		height: 90%;
+		font-size: 3em;
+	}
+	header{
+		font-size: 400%;
+		color: white;
+	}
+	.loginBlock header{
+		font-size: 240%;
+		color : white;
+	}
+	input{
+		width:400px;
+		height: 100px;
+		padding:7px; 
+		margin:5px; 
+	}
+	input[type='submit'],input[type='button']{
+		height:50px; 
+		width:300px;
+		background: white;
+	}
+
 }
