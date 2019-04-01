@@ -12,7 +12,7 @@ db = SQLAlchemy(app)
 @app.route('/login',methods=['GET','POST'])
 def login():
 
-    if 'name' in session:
+    if 'username' in session:
         return redirect(url_for('home')) 
 
     elif request.method=='POST':
@@ -84,11 +84,11 @@ def insert(insertionType,paragraph=None,password=None,typ=None,username=None):
             VALUES ('{}','{}','{}')'''.format(username,password,"STUDENT" if typ == '0' else "INSTRUCTOR")
         db.engine.execute(text(sql))
 
-        if typ == '1':#dealing w student
+        if typ == '0':#dealing w student
             sql='''INSERT INTO grades (a1,a2,a3,q1,q2,q3,q4,midterm,final,username)
             VALUES (0,0,0,0,0,0,0,0,0,'{}')'''.format(username)
             db.engine.execute(text(sql))
-        elif typ == '2':
+        elif typ == '1':
             sql='''INSERT INTO feedback (username,reviews)
             VALUES ('{}'," ")'''.format(username)
             db.engine.execute(text(sql))
@@ -183,12 +183,18 @@ def Feedback():
                     What do you recommend the lab instructors to do to improve their lab teaching?\n
                      {} \n\n
                     $#'''.format(request.form['0'],request.form['1'],request.form['2'],request.form['3'])
-        insert('FEEDBACK',username=request.form.get('instructor'),paragraph=paragraph)   #THIS DONTWORK             
+
+        user = request.form.get('instructor')
+        print(user)#STILL BROKE
+        insert('FEEDBACK',username=user,paragraph=paragraph)   #THIS DONTWORK  
+
     return render_template('student/Feedback.html',data=query("INSTRUCTORNAMES"), name= session['username'])
 
 @app.route('/gradesMy')#need query info
 def gradesMy():
     data = query("MYGRADES")
+    if data is None:
+        return render_template('student/gradesMy.html', data='', name =session['username'] )
     for i in data:
         return render_template('student/gradesMy.html', data=i, name =session['username'] )
 
@@ -200,7 +206,7 @@ def home():
     else:
         return render_template('student/homeStudent.html', data = session['username'])
 
-######log out############
+######log out############    
 @app.route('/logout')
 def logout():
     if 'username' in session:

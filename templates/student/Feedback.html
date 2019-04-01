@@ -32,12 +32,12 @@
 			<textarea  onkeyup="greyOut()"id="2"name=2 cols="10" rows="5" placeholder="What do you like about the labs?"></textarea>
 			<textarea  onkeyup="greyOut()"id="3"name=3 cols="10" rows="5" placeholder="What do you recommend the lab instructors to do to improve their lab teaching?"></textarea>
 						
-			<select name="instructor" id="submits">
+			<select name='instructor' id="instructor">
 					{%for name in data%}
 					<option value={{ name.index }}>{{name[0]}}</option>
 					{%endfor%}
 			</select>
-				<input id="submitButton"type=submit value=Submit>
+			<input id="submitButton"type="Submit" value=Submit>
 			</form>
 	</div>
 	<script type="text/javascript" src="../static/js/feedback.js"></script>
