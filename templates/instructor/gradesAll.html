@@ -3,10 +3,11 @@
 <html>
 <head>
     <title>Course Grades</title>
-    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/allGrades.css">
     
 </head>
-<body onload="loadGrades()">
+<body>
 		<header>
 		<a href="home">CSCB20 WINTER 2019</a>
 
@@ -26,35 +27,38 @@
 	</header>
 	<br>
 	<br>
-	<div class ="masterWrap" >
+	<div class ="masterWrap">
 	<div class="info-container" id="grades" style="border: none;color:white;">Course Grades</div>
-		
-    <table id="tables">
-        <tr>
-            <th>Username</th><th>Quiz 1</th><th>Quiz 2</th><th>Quiz 3</th><th>Quiz 4</th>
-            <th>Assignment 1</th><th>Assignment 2</th><th>Assignment 3</th>
-            <th>Midterm</th><th>Final Exam</th>
-        </tr>
-        <tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
 	<form method="POST">
+
+
+	<!--col names-->
+
+	<div id = "table">
+		<P>Username</P><P>Quiz 1</P><P>Quiz 2</P><P>Quiz 3</P><P>Quiz 4</P>
+		<P>Assign. 1</P><P>Assign. 2</P><P>Assign. 3</P><P>Midterm</P><P>Final</P>
+	</div>
 	{%for i in data%}
-		<tr>
-			
-			<th>{{i['username']}}</div></th><!--"name-q1"-->
-			<th><input name="{{i['username']}} 0" type="number" value="{{i['q1']}}" ></th>
-			<th><input name="{{i['username']}} 1" type="number" value="{{i['q2']}}"></th>
-			<th><input name="{{i['username']}} 2"type="number" value="{{i['q3']}}"></th>
-			<th><input name="{{i['username']}} 3" type="number" value="{{i['q4']}}"></th>
-			<th><input name="{{i['username']}} 4" type="number" value="{{i['a1']}}"></th>
-			<th><input name="{{i['username']}} 5" type="number" value="{{i['a2']}}"></th>
-			<th><input name="{{i['username']}} 6"type="number" value="{{i['a3']}}"></th>
-			<th><input name="{{i['username']}} 7"type="number" value="{{i['midterm']}}"></th>
-			<th><input name="{{i['username']}} 8"type="number" value="{{i['final']}}"></th>
-        </tr>
+			<div id = "table">
+
+					<input type=button value="{{i['username']}}"><!--"name-q1"-->
+					<input name="{{i['username']}} 0" type="number" value="{{i['q1']}}">
+					<input name="{{i['username']}} 1" type="number" value="{{i['q2']}}">
+					<input name="{{i['username']}} 2"type="number" value="{{i['q3']}}">
+					<input name="{{i['username']}} 3" type="number" value="{{i['q4']}}">
+					<input name="{{i['username']}} 4" type="number" value="{{i['a1']}}">
+					<input name="{{i['username']}} 5" type="number" value="{{i['a2']}}">
+					<input name="{{i['username']}} 6"type="number" value="{{i['a3']}}">
+					<input name="{{i['username']}} 7"type="number" value="{{i['midterm']}}">
+					<input name="{{i['username']}} 8"type="number" value="{{i['final']}}">
+
+			</div>
 	{%endfor%}
-		<input type="submit" id="submits" value="Apply Changes">
+	<div id="table">
+			<input type="submit" id="submits" value="Apply">
+	</div>
+		
 	</form>
-	</table>
     </div>
     
 </body>

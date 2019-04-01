@@ -7,6 +7,7 @@ app.secret_key=b'supersecret1'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///assignment3.db'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0#avoids caching
 db = SQLAlchemy(app)
+
 @app.route('/',methods=['GET','POST'])
 @app.route('/login',methods=['GET','POST'])
 def login():
@@ -31,9 +32,10 @@ def login():
             u = request.form['usernamereg']
             p = request.form['passwordreg']
             t = request.form['pulldown']
-            if u == "" or p == "" or t == '0':
-                return render_template('index.html',alert="insuf")
-            insert("ACCOUNT",username=u,password=p,type=t)    
+            try:# for if name is already in 
+                insert("ACCOUNT",username=u,password=p,typ=t)
+            except:
+                return render_template('index.html',alert="alreadyExist")
             return render_template('index.html')
 
     elif request.method=='GET':
@@ -74,14 +76,37 @@ def query(requested_data):
             data = db.engine.execute(text(sql))
     return data
 
-def insert(insertionType,paragraph=None,password=None,type=None,username=None):
+def insert(insertionType,paragraph=None,password=None,typ=None,username=None):
     #types - ACCOUNT, FEEDBACK, REMARK
     #if insertionType == "ACCOUNT":
- 
-    
-    
-    
-    return
+    if(insertionType=='ACCOUNT'):
+        sql='''INSERT INTO users (username,password,type)
+            VALUES ('{}','{}','{}')'''.format(username,password,"STUDENT" if typ == '0' else "INSTRUCTOR")
+        db.engine.execute(text(sql))
+
+        if typ == '1':#dealing w student
+            sql='''INSERT INTO grades (a1,a2,a3,q1,q2,q3,q4,midterm,final,username)
+            VALUES (0,0,0,0,0,0,0,0,0,'{}')'''.format(username)
+            db.engine.execute(text(sql))
+        elif typ == '2':
+            sql='''INSERT INTO feedback (username,reviews)
+            VALUES ('{}'," ")'''.format(username)
+            db.engine.execute(text(sql))
+    elif(insertionType=='FEEDBACK'):
+        getpresql='''
+        select reviews from feedback where username = '{}' 
+        '''.format(username)
+        getpre=db.engine.execute(text(getpresql))
+        pre = ''
+        for i in getpre:
+            print(i)
+            pre = i[0]
+        sql=''' update feedback set reviews = '{}' where username = "{}"
+                '''.format(pre +'\n'+ paragraph,username)
+        db.engine.execute(text(sql))
+
+    elif(insertionType=='REMARK'):
+        pass
 
 
 ######similar pages####### V
@@ -115,23 +140,26 @@ def myFeedBack():
 @app.route('/gradesAll',methods=['GET','POST'])#need query info
 def gradesAll():
     if request.method=='POST':#update grades
-
+        convert = {0:"q1",1:'q2',2:'q3',3:'q4',4:'a1',5:'a2',6:'a3',7:'midterm',8:'final'}
         students = db.engine.execute(text('''select username from users
                     where type == "STUDENT" '''))
         
-        for student in students:
+        studentlst = []
+        for i in students:
+            studentlst.append(i[0])
+        for student in studentlst:
             sql = """select q1,q2,q3,q4,a1,a2,a3,midterm,
             final from grades where username = "{}"
-            """.format(student[0])
+            """.format(student)
             grades = db.engine.execute(text(sql))
             for row in grades:
                 for count, grade in enumerate(row):
-                    if(request.form[student[0]+" "+str(count)] != str(grade)):
-                        pass
+                    if(request.form[student+" "+str(count)] != str(grade)):
                         #replace the value in the db with request.form[student[0]+" "+str(count)]
-                    
-                    
-                    
+                        sql = ''' update grades set '{}' = '{}' where username = "{}"
+                        '''.format(convert[count],request.form[student+" "+str(count)],student)
+                        db.engine.execute(text(sql))
+                        
         return render_template('instructor/gradesAll.html', data=query("ALLGRADES"), name = session['username'])
     else:
         return render_template('instructor/gradesAll.html', data=query("ALLGRADES"), name = session['username'])
@@ -142,8 +170,20 @@ def myRemarks():
 
 
 #####student pages##### V
-@app.route('/Feedback') 
+@app.route('/Feedback',methods=['GET','POST']) 
 def Feedback():
+    if request.method=='POST':
+        paragraph = '''
+                    What do you like about the instructor teaching ?\n
+                     {} \n\n
+                    What do you recommend the instructor to do to improve their teaching?\n
+                     {} \n\n
+                    What do you like about the labs?\n
+                     {} \n\n
+                    What do you recommend the lab instructors to do to improve their lab teaching?\n
+                     {} \n\n
+                    $#'''.format(request.form['0'],request.form['1'],request.form['2'],request.form['3'])
+        insert('FEEDBACK',username=request.form.get('instructor'),paragraph=paragraph)   #THIS DONTWORK             
     return render_template('student/Feedback.html',data=query("INSTRUCTORNAMES"), name= session['username'])
 
 @app.route('/gradesMy')#need query info

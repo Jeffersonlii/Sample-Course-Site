@@ -107,54 +107,9 @@ footer{
 	background-color: rgba(0, 0, 0, 0.6);
 	color: white;
 }
-/*feed back list for instructors*/
 
-#feedbacks{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-#feedbacks p {
-	display: flex;
-	padding: 2%;
-	margin: 20px;
-	width: 30%;
-	color:white;
-	background-color: rgba(0, 0, 0, 0.5);
-	font-family: 'Montserrat', sans-serif;
-}
 
-/*tables for student marks*/
-table,th,td{
-	border: grey 2px solid;
-	background-color: rgba(0, 0, 0, 0.5);
-	color: white;
-	font-family: 'Montserrat', sans-serif;
-}
-table input,th input,td input{
-	width: 50px;
-}
 
-/*forms*/
-textarea{
-	margin-left: 20%;
-	margin-right: 20%;
-	width: 60%;
-	height: 40%;
-}
-form{
-	text-align:center;
-}
-#submits{
-	font-size: 1em;
-	width: 13%;
-	height: 5%;
-}
-#remark{
-	width: 40%;
-	height: 10%;
-	margin-left: 30%;
-}
 
 
 
@@ -164,7 +119,7 @@ form{
 	header nav{font-size: 1.4em;padding-top: 4%}
 	.masterWrap{
 		display: block;
-		margin-top: 45%;
+		margin-top: 50%;
 	}
 	.info-container{
 		display: block;

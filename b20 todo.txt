@@ -27,13 +27,7 @@ student or instructor acount
 
 to do :
 
-remove all inline css
-make a calendar
-
-instructors :
-insert, delete, modify grades
-
-student:
-submite remarks
-submit feedback
-
+selector for feedback doesnt work 
+finish grades submition
+clean up code
+make sure everythingfits rubric

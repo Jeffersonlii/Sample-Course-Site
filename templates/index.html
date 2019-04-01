@@ -4,8 +4,8 @@
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="../static/css/login_style.css">
   </head>
-  <body>
-        <div class="container">
+  <body onload="greyOut()">
+        <div class="container" >
                 <form class="loginBlock" method="POST">
                         <header>CSCB20 WINTER</header><br>
                         <div><input type="text" placeholder="Username" name=username></div>
@@ -16,18 +16,17 @@
                 </form>
       
            
-                <form class="popUpReg" method ="POST">
+                <form class="popUpReg" method ="POST" >
                   
                         <input type="button" id="close" value="X">
                         <header >Registration</header><br><br>
                         <div class="info">
-                            <input type="text" placeholder="Username" name = usernamereg>
-                            <input type="password" placeholder="Password" name = passwordreg>
+                            <input id="user" type="text" placeholder="Username" name = usernamereg onkeyup="greyOut()"> 
+                            <input id="pass" type="password" placeholder="Password" name = passwordreg onkeyup="greyOut()">
                             <div class="userType">
                                 <select name="pulldown" id="pulldown">
-                                    <option value="0">Select User Type</option>
-                                    <option value="1">Student</option>
-                                    <option value="2">Instructor </option>
+                                    <option value="0">Student</option>
+                                    <option value="1">Instructor </option>
                                 </select>
                             </div>
                         </div>
@@ -42,10 +41,11 @@
         <script>
             alert("Wrong Password/Username")
         </script>
-        {%elif alert=="insuf"%}
+        {%elif alert=="alreadyExist"%}
         <script>
-            alert("Insufficient Registration Info")
+            alert("This Username Already Exists")
         </script>
+
         {%endif%}         
   </body>
 </html>
