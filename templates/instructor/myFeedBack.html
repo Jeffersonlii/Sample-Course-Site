@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../../static/css/style.css">
 	<link rel="stylesheet" type="text/css" href="../../static/css/myFeedbackandRemark.css">
 </head>
-<body>
+<body onload='replace()'>
 	<header>
 		<a href="home">CSCB20 WINTER 2019</a>
 
@@ -27,7 +27,7 @@
 	<br>
 	<br>
 	<div class ="masterWrap" >
-        <div class="info-container" id="grades" style="border: none;color:white;">Anon. Feedback for {{name}}</div>
+        <div class="info-container" id="grades" >Anon. Feedback for {{name}}</div>
 
         <div id="feedbacks">
 			{%for i in data%}
@@ -37,12 +37,11 @@
 
     
     </div>
-	
 </body>
-    <footer>
+    <footer >
 		<a href="https://www.utsc.utoronto.ca/cms/faculty"target="_blank">UTSC CMS Faculty</a>
 		<br>
 		Site Designed by Jefferson Li , Muhes Ariya
     </footer>
-    <script src="../static/js/instructorFB.js"></script>
+    <script src="../static/js/Feedback.js"></script>
 </html>

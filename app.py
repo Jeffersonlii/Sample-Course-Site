@@ -77,18 +77,18 @@ def query(requested_data):
     return data
 
 def insert(insertionType,paragraph=None,password=None,typ=None,username=None):
-    #types - ACCOUNT, FEEDBACK, REMARK
-    #if insertionType == "ACCOUNT":
+    #types - ACCOUNT, FEEDBACK
+
     if(insertionType=='ACCOUNT'):
         sql='''INSERT INTO users (username,password,type)
-            VALUES ('{}','{}','{}')'''.format(username,password,"STUDENT" if typ == '0' else "INSTRUCTOR")
+            VALUES ('{}','{}','{}')'''.format(username,password,typ)
         db.engine.execute(text(sql))
 
-        if typ == '0':#dealing w student
+        if typ == 'STUDENT':#dealing w student
             sql='''INSERT INTO grades (a1,a2,a3,q1,q2,q3,q4,midterm,final,username)
             VALUES (0,0,0,0,0,0,0,0,0,'{}')'''.format(username)
             db.engine.execute(text(sql))
-        elif typ == '1':
+        elif typ == 'INSTRUCTOR':
             sql='''INSERT INTO feedback (username,reviews)
             VALUES ('{}'," ")'''.format(username)
             db.engine.execute(text(sql))
@@ -99,14 +99,11 @@ def insert(insertionType,paragraph=None,password=None,typ=None,username=None):
         getpre=db.engine.execute(text(getpresql))
         pre = ''
         for i in getpre:
-            print(i)
             pre = i[0]
         sql=''' update feedback set reviews = '{}' where username = "{}"
                 '''.format(pre +'\n'+ paragraph,username)
         db.engine.execute(text(sql))
 
-    elif(insertionType=='REMARK'):
-        pass
 
 
 ######similar pages####### V
@@ -174,29 +171,40 @@ def myRemarks():
 def Feedback():
     if request.method=='POST':
         paragraph = '''
-                    What do you like about the instructor teaching ?\n
-                     {} \n\n
-                    What do you recommend the instructor to do to improve their teaching?\n
-                     {} \n\n
-                    What do you like about the labs?\n
-                     {} \n\n
-                    What do you recommend the lab instructors to do to improve their lab teaching?\n
-                     {} \n\n
+                    What do you like about the instructor teaching ? <br>
+                     {} <br> <br>
+                    What do you recommend the instructor to do to improve their teaching?<br>
+                     {} <br> <br>
+                    What do you like about the labs? <br>
+                     {} <br> <br>
+                    What do you recommend the lab instructors to do to improve their lab teaching? <br>
+                     {}  <br> <br>
                     $#'''.format(request.form['0'],request.form['1'],request.form['2'],request.form['3'])
 
         user = request.form.get('instructor')
-        print(user)#STILL BROKE
         insert('FEEDBACK',username=user,paragraph=paragraph)   #THIS DONTWORK  
 
     return render_template('student/Feedback.html',data=query("INSTRUCTORNAMES"), name= session['username'])
 
-@app.route('/gradesMy')#need query info
+@app.route('/gradesMy',methods=['GET','POST'])#need query info
 def gradesMy():
-    data = query("MYGRADES")
-    if data is None:
-        return render_template('student/gradesMy.html', data='', name =session['username'] )
-    for i in data:
-        return render_template('student/gradesMy.html', data=i, name =session['username'] )
+    if request.method=='POST':
+        assessments = ['Final','Midterm','Quiz 1','Quiz 2','Quiz 3','Quiz 4'
+        ,'Assignment 1','Assignment 2','Assignment 3']
+        for assessment in assessments:
+            if request.form[assessment] != '':
+                sql='''INSERT INTO remarks (username,request,assessment)
+                VALUES ('{}','{}','{}')
+                '''.format(session['username'],request.form[assessment],assessment)
+                db.engine.execute(text(sql))
+        return redirect(url_for('gradesMy'))
+
+    if request.method=='GET':
+        data = query("MYGRADES")
+        if data is None:
+            return render_template('student/gradesMy.html', data='', name =session['username'] )
+        for i in data:
+            return render_template('student/gradesMy.html', data=i, name =session['username'] )
 
 ##### home ####### V
 @app.route('/home')

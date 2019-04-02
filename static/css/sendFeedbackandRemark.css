@@ -5,7 +5,7 @@ textarea{
 	width: 60%;
 	height: 40%;
 }
-form{
+.block{
 	text-align:center;
 }
 #submits{
@@ -17,4 +17,7 @@ form{
 	width: 40%;
 	height: 10%;
 	margin-left: 30%;
+}
+#hiddenDate{
+	display: block;
 }

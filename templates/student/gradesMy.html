@@ -7,8 +7,10 @@
     <link rel="stylesheet" type="text/css" href="../../static/css/sendFeedbackandRemark.css">
 </head>
 
-<body>
-   	<header>
+<body onload="getTime()">
+    <form method="POST">
+        <article id="hiddenDate" name=hiddenDate>Time: </article>
+   	    <header>
 		<a href="home">CSCB20 WINTER 2019</a>
 
 		
@@ -24,17 +26,20 @@
 		    <a href="instructor">Instructor</a> |
 			<a href="logout">Logout From {{ name }}</a>
 		</nav>
-	</header>
+	    </header>
     <br>
     <br>
+    
+
+    
     <div class="masterWrap">
         <div class="info-container" id="grades">Grades for {{ name }}</div>
         <div class="info-container">
-                
+        
             <!--exams-->
             <div class="masterWrap" id="examMark">
                 <p id="grades">Exams</p>
-                <form method="GET">	
+                <article class="blocks">	
                 <p>Midterm - {{data['midterm']}}%</p>
                 <p>
                 <textarea cols="1" rows="1" placeholder="Enter Q1 Remark Request " name=Final></textarea>
@@ -45,13 +50,13 @@
                 <textarea cols="1" rows="1" placeholder="Enter Q1 Remark Request " name=Midterm></textarea>
                 <input id="remark" type=submit value="Submit Remark Request">
                 </p>
-            </form>
+            </article>
             </div>
    
             <div class="masterWrap" id="quizMark">
                 <!--quizes-->
                 <p id="grades">Quizes</p>
-                <form method="GET">	
+                <article class="blocks">	
                 <p>Quiz 1 - {{data['q1']}}%</p>
                 <p>
                 <textarea cols="1" rows="1" placeholder="Enter Q1 Remark Request "name="Quiz 1"></textarea>
@@ -72,13 +77,13 @@
                 <textarea cols="1" rows="1" placeholder="Enter Q1 Remark Request "name="Quiz 4"></textarea>
                 <input id="remark" type=submit value="Submit Remark Request">
                 </p>
-                </form>
+            </article>
             </div>
 
             <div class="masterWrap" id="assignmentMarks">
                 <!--assignents-->
             <p id="grades">Assignments</p>
-            <form method="GET">	
+            <article class="blocks">	
                 <p>Assignment 1 - {{data['a1']}}%</p>
                 <p>
                 <textarea cols="1" rows="1" placeholder="Enter Q1 Remark Request "name="Assignment 1"></textarea>
@@ -94,9 +99,10 @@
                 <textarea cols="1" rows="1" placeholder="Enter Q1 Remark Request "name="Assignment 3"></textarea>
                 <input id="remark" type=submit value="Submit Remark Request">
                 </p>
-            </form>
+            </article>
             </div>
         </div>
+    </form>
     </div>
 
 </body>
@@ -105,6 +111,6 @@
     <br>
     Site Designed by Jefferson Li , Muhes Ariya
 </footer>
-<script src="../../static/js/studentsGrades.js"></script>
+<script src="../../static/js/feedback.js"></script>
 
 </html>
