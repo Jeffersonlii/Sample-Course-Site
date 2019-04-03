@@ -20,7 +20,7 @@
 		    <a href="CWork">Course Work</a> |
 		    <a href="Ohour">Office/Tutorials Times</a> |
 		    <a href="instructor">Instructor</a> |
-			<a href="logout">Logout From {{ data }}</a>
+			<a href="logout">Logout From {{ name }}</a>
 		</nav>
 	</header>
 
@@ -30,28 +30,14 @@
 	
 	<div class="info-container">
 		<div>
-			<h3>Professor</h3>
-			<p>
-				-  A. Attarwala <br><br>
-					416-208-5108<br><br>
-					abbas.attarwala@utoronto.ca<br><br>
-					IC349<br>
-			</p>
-		</div>
-		<div >
-			<h3>Teaching Assistants</h3>
-			<p> - Dharmik <br><br>
-				dharmik.shah@mail.utoronto.ca <br><br>
-				<br>
-				- Brian<br><br>
-				brianandrew.lam@mail.utoronto.ca<br><br>
-				<br>
-				- Syena<br><br>
-				Syena@mail.utoronto.com<br><br>
-				<br>
-				- Kevin<br><br>
-				Kevin@mail.utoronto.com<br><br>
-			</p>
+			<h1>Course Team</h1>
+			{%for i in data%}
+
+				<h3>{{i[0]}}</h3>
+				<p>{{i[1]}}</p>
+
+			{%endfor%}
+
 		</div>
 	</div>
 		

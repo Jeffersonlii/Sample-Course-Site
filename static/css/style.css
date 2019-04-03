@@ -7,7 +7,6 @@ body{
     background-repeat:no-repeat;
     background-attachment: fixed;
 	background-blend-mode: screen;
-
 }
 
 /*the header + nav links*/
@@ -41,11 +40,13 @@ a:hover{
 /*info boxes and custom link styling*/
 .masterWrap{
 	display: flex;
-	flex-direction: column;
 
+	flex-direction: column;
+	top: 300px;
 	margin-top: 8%;
 	margin-left: 15%;
 	margin-right: 15%;
+
 }
 .info-container{
 	display: flex;
@@ -109,7 +110,7 @@ footer{
 	color: white;
 	width: 99%;
 	height: 0px;
-	padding-top: 2%;
+	padding-top: 50%;
 }
 
 /*click here for grades stuff*/

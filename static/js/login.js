@@ -35,7 +35,7 @@ $(document).ready(function(){
 
 function greyOut(){
 	if(document.getElementById('user').value==="" ||
-	document.getElementById('pass').value===""){
+	document.getElementById('pass').value==="" ){
 		document.getElementById("newReg").disabled=true;
 	}
 	else{

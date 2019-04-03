@@ -32,8 +32,10 @@ def login():
             u = request.form['usernamereg']
             p = request.form['passwordreg']
             t = request.form['pulldown']
+            e = request.form['UTorEmail' ]
+
             try:# for if name is already in 
-                insert("ACCOUNT",username=u,password=p,typ=t)
+                insert("ACCOUNT",username=u,password=p,typ=t,email=e)
             except:
                 return render_template('index.html',alert="alreadyExist")
             return render_template('index.html')
@@ -70,18 +72,18 @@ def query(requested_data):
             select username, a1,a2,a3,q1,q2,q3,q4,midterm,final from grades 
             where username == "{}" """.format(session['username'])
             data = db.engine.execute(text(sql))
-        if requested_data == "INSTRUCTORNAMES":
-            sql = """select username from users
+    if requested_data == "INSTRUCTORNAMES":
+        sql = """select username,email from users
                     where type == "INSTRUCTOR" """
-            data = db.engine.execute(text(sql))
+        data = db.engine.execute(text(sql))
     return data
 
-def insert(insertionType,paragraph=None,password=None,typ=None,username=None):
+def insert(insertionType,paragraph=None,password=None,typ=None,username=None,email=None):
     #types - ACCOUNT, FEEDBACK
 
     if(insertionType=='ACCOUNT'):
-        sql='''INSERT INTO users (username,password,type)
-            VALUES ('{}','{}','{}')'''.format(username,password,typ)
+        sql='''INSERT INTO users (username,password,type,email)
+            VALUES ('{}','{}','{}','{}')'''.format(username,password,typ,email)
         db.engine.execute(text(sql))
 
         if typ == 'STUDENT':#dealing w student
@@ -113,7 +115,9 @@ def CWork():
 
 @app.route('/instructor')
 def instructor():
-    return render_template('common/instructor.html', data= session['username'])
+    data=query('INSTRUCTORNAMES')
+    print(data)
+    return render_template('common/instructor.html',data=data, name= session['username'])
 
 @app.route('/Ohour')
 def c():
@@ -182,7 +186,7 @@ def Feedback():
                     $#'''.format(request.form['0'],request.form['1'],request.form['2'],request.form['3'])
 
         user = request.form.get('instructor')
-        insert('FEEDBACK',username=user,paragraph=paragraph)   #THIS DONTWORK  
+        insert('FEEDBACK',username=user,paragraph=paragraph) 
 
     return render_template('student/Feedback.html',data=query("INSTRUCTORNAMES"), name= session['username'])
 

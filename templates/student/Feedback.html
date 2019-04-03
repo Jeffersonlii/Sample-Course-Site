@@ -34,7 +34,7 @@
 						
 			<select name='instructor' id="instructor">
 					{%for name in data%}
-					<option value='{{ name[0] }}' >{{name[0]}}</option>
+					<option value='{{ name[0] }}' >{{name[0]}} - {{name[1]}}</option>
 					{%endfor%}
 			</select>
 			<input id="submitButton"type="Submit" value=Submit>
