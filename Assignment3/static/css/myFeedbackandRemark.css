@@ -1,0 +1,16 @@
+/*feed back list for instructors*/
+
+#feedbacks{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+#feedbacks p {
+	display: flex;
+	padding: 2%;
+	margin: 20px;
+	width: 30%;
+	color:white;
+	background-color: rgba(0, 0, 0, 0.5);
+	font-family: 'Montserrat', sans-serif;
+}
