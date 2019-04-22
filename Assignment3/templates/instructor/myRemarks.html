@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Instructor Remarks</title>
+	<link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/myFeedbackandRemark.css">
+
+</head>
+<body>
+	<header>
+		<a href="home">CSCB20 WINTER 2019</a>
+
+		
+		<br>
+
+		<!--nav links-->
+		<nav>
+			<a href="https://piazza.com/class/jr7mjhytaij3jc" target="_blank">Piazza</a> |
+		    <a href="https://markus.utsc.utoronto.ca/cscb20w19/?locale=en" target="_blank">Markus</a> |
+		    <a href="https://q.utoronto.ca/courses/70345" target="_blank">Quercus</a> <br>
+		    <a href="CWork">Course Work</a> |
+		    <a href="Ohour">Office/Tutorials Times</a> |
+		    <a href="instructor">Instructor</a> |
+			<a href="logout">Logout From {{ name }}</a>
+		</nav>
+	</header>
+	<br>
+	<br>
+	<div class ="masterWrap" >
+        <div class="info-container" id="grades">Remarks for CSCB20</div>
+
+        <div id="feedbacks">
+			{%for i in data%}
+                <p>{{i.username}} || {{i.assessment}}  <br><br> {{i.request}}</p>
+			{%endfor%}
+        </div>
+
+    
+    </div>
+	
+</body>
+    <footer>
+		<a href="https://www.utsc.utoronto.ca/cms/faculty"target="_blank">UTSC CMS Faculty</a>
+		<br>
+		Site Designed by Jefferson Li , Muhes Ariya
+    </footer>
+</html>

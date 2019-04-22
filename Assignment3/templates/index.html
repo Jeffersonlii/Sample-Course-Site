@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/login_style.css">
+  </head>
+  <body onload="greyOut()">
+        <div class="container" >
+                <form class="loginBlock" method="POST">
+                        <header>CSCB20 WINTER</header><br>
+                        <div><input type="text" placeholder="Username" name=username></div>
+                        <div><input type="password" placeholder="Password" name=password></div>
+                        
+                        <div><input type=submit id="login" value=Submit name = 'login'></div>
+                        <div><input type=button id="register" value="Register"></div>
+                </form>
+      
+           
+                <form class="popUpReg" method ="POST" >
+                  
+                        <input type="button" id="close" value="X">
+                        <header >Registration</header><br><br>
+                        <div class="info">
+                            <input id="user" type="text" placeholder="Username" name = usernamereg onkeyup="greyOut()"> 
+                            <input id=email type="email" placeholder="UToronto Email" value = "@mail.utoronto.com"name='UTorEmail' 
+                              pattern=".+@mail.utoronto.com" required onkeyup="greyOut()">
+                            <input id="pass" type="password" placeholder="Password" name = passwordreg onkeyup="greyOut()">
+                            <div class="userType">
+                                <select name="pulldown" id="pulldown">
+                                    <option value="STUDENT">Student</option>
+                                    <option value="INSTRUCTOR">Instructor </option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                      <div><input type=submit id='newReg' value="Register" name = newReg></div>
+                </form>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../static/js/login.js"></script>
+        {%if alert=="pass"%}
+        <script>
+            alert("Wrong Password/Username")
+        </script>
+        {%elif alert=="alreadyExist"%}
+        <script>
+            alert("This Username Already Exists")
+        </script>
+
+        {%endif%}         
+  </body>
+</html>

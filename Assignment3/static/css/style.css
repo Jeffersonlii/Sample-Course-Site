@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/*background image*/
+body{
+	background-image: url('../assets/Background.png');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+	background-blend-mode: screen;
+}
+
+/*the header + nav links*/
+header{
+	position: fixed;
+	display: block;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 3em;
+	width: 99%;
+	color: white;
+	background-color: #303030;
+}
+header nav{
+	display: block;
+	font-size: .6em;
+}
+a:link{
+	text-decoration: none;
+	color: white;
+}
+a:visited{
+	text-decoration: none;
+	color: white;
+}
+a:hover{
+	text-decoration: none;
+	color: #313335;
+	background-color: white;
+}
+/*info boxes and custom link styling*/
+.masterWrap{
+	display: flex;
+
+	flex-direction: column;
+	top: 300px;
+	margin-top: 8%;
+	margin-left: 15%;
+	margin-right: 15%;
+
+}
+.info-container{
+	display: flex;
+	flex-wrap: wrap;
+	font-family: 'Montserrat', sans-serif;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+.info-container div{
+	width: 35%;
+	margin: 10px;
+	padding: 10px;
+	padding-top: 0px;
+	background-color: rgba(0, 0, 0, 0.6);
+	text-align: left;
+	color: white;
+	
+}
+.info-container p{
+	text-align: left;
+	color: white;
+}
+/*user type specific links*/
+#specific{
+	display: flex;
+	padding: 1%;
+	font-size: 2em;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	flex-direction:column;
+	align-items:center;
+}
+#red{
+	border: 2px red solid;
+	padding: 5px;padding-left: 10px;
+}
+
+
+.info-container div a:link{
+	text-decoration: none;
+	color:#87CEFA;
+}
+.info-container div a:visited{
+	text-decoration: none;
+	color: #87CEFA;
+}
+.info-container div a:hover{
+	text-decoration: underline;
+	color: black;
+}
+.info-container div img{
+	width: 80%;
+	height: 90%;
+}
+
+footer{
+	display: block;
+	text-align: center;
+	bottom: 0;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	width: 99%;
+	height: 0px;
+	padding-top: 50%;
+}
+
+/*click here for grades stuff*/
+#grades{
+	display: flex;
+	padding: 1%;
+	font-size: 2em;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+}
+
+
+
+
+
+
+/*mobile styling*/
+@media only screen and (max-device-width: 480px){
+	header{font-size: 3em;}
+	header nav{font-size: 1.4em;padding-top: 4%}
+	.masterWrap{
+		display: block;
+		margin-top: 50%;
+	}
+	.info-container{
+		display: block;
+		width: 99%;
+		text-align: center;
+		
+	}
+	.info-container div{
+		width: 99%;
+		padding-top: .4%;
+		text-align: center;
+		font-size: 1.3em;
+	}
+	.info-container div img{
+	width: 120%;
+	height: 110%;
+	}
+
+	footer{
+		font-size: 2.4em;
+	}
+	#form{
+	margin-top: 500px;
+	text-align: center;
+	}
+}
