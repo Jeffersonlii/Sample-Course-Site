@@ -1,8 +1,0 @@
-.info-container{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-}
-.info-container div{
-    width: 80%;
-}
